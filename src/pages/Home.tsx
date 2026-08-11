@@ -41,49 +41,49 @@ const BESTSELLERS = [
   {
     number: "01",
     img: "/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp",
-    name: "MEGA BUNNY 3L",
-    category: "Drawers & Cabinets",
+    name: "Mega Bunny 3L",
+    category: "Drawers",
     productId: "drawers-mega-bunny-3l",
     offset: false
   },
   {
     number: "02",
     img: "/images/Chairs/Chairs/Rattan Chair 890/890 brown.webp",
-    name: "890 BROWN",
-    category: "Classic Comfort",
-    productId: "chairs-rattan-890",
+    name: "Rattan Chair",
+    category: "Chairs",
+    productId: "chairs-rattan-chair-890",
     offset: true
   },
   {
     number: "03",
-    img: "/images/Drawers & Cabinets/Drawers and Cabinets/18000 6L/18000 6L Aqua.webp",
-    name: "18000 6L AQUA",
-    category: "Storage & Cabinets",
-    productId: "drawers-18000-6l",
+    img: "/images/Dish Cabinet/Dish Cabinet/8000/8000 blue3.webp",
+    name: "Dish Cabinet",
+    category: "Dish Cabinets",
+    productId: "dish-cabinets-8000",
     offset: false
   },
   {
     number: "04",
-    img: "/images/Storage Box/Storage Box/Transparent/111-M trans red.webp",
-    name: "111-M TRANS RED",
-    category: "Storage Boxes",
-    productId: "storage-box-111m-red",
+    img: "/images/Storage Box/Storage Box/Transparent/111-L transblue.webp",
+    name: "Storage Box Transparent",
+    category: "Storage Box",
+    productId: "storage-box-transparent",
     offset: true
   },
   {
     number: "05",
     img: "/images/Tables/Tables/8824/8824 white.webp",
-    name: "8824 RECTANGULAR",
+    name: "Rectangular Table",
     category: "Tables",
-    productId: "tables-8824-rectangular-table",
+    productId: "tables-8824",
     offset: false
   },
   {
     number: "06",
-    img: "/images/Dish Cabinet/Dish Cabinet/8000/8000 blue3.webp",
-    name: "DISH CABINET 8000",
-    category: "Dish Cabinets",
-    productId: "dish-cabinets-8000",
+    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Golden Bunny 8828/8828 Golden Bunny Blue.webp",
+    name: "Golden Bunny",
+    category: "Drawers",
+    productId: "drawers-golden-bunny-8828",
     offset: true
   }
 ];
