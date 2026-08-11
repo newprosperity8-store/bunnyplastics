@@ -165,7 +165,7 @@ export default function Home() {
 
         {/* Big BUNNY Text */}
         <div className="absolute bottom-0 left-0 w-full flex flex-col items-center justify-center z-30 translate-y-[-5%] pointer-events-none">
-          <h1 className="text-[7rem] sm:text-[10rem] md:text-[13rem] leading-[0.8] font-logo text-background tracking-tighter text-center">
+          <h1 className="text-[5.5rem] sm:text-[9rem] md:text-[13rem] leading-[0.8] font-logo text-background tracking-wide text-center">
             BUNNY
           </h1>
         </div>
@@ -243,10 +243,9 @@ export default function Home() {
           
           {/* Centered Massive Header */}
           <div className="flex flex-col items-center justify-center mb-8 text-center relative">
-            <h2 className="text-[3rem] sm:text-[5rem] md:text-[8rem] xl:text-[10rem] leading-[0.8] font-logo tracking-tighter uppercase pointer-events-none select-none whitespace-nowrap pb-4 md:pb-8">
-              <span className="text-white">OUR</span> <span className="text-white">BESTSELLERS</span>
+            <h2 className="text-3xl sm:text-6xl md:text-8xl xl:text-[10rem] leading-[0.9] font-logo tracking-wider uppercase pointer-events-none select-none whitespace-nowrap pb-2 md:pb-8 text-white">
+              OUR BESTSELLERS
             </h2>
-
           </div>
 
           {/* Staggered Cards Layout */}
@@ -299,20 +298,20 @@ export default function Home() {
       </div>
 
       {/* Feature Section (Mega Bunny 3L) */}
-      <section className="pt-8 md:pt-12 pb-4 md:pb-8 bg-background">
-        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <section className="pt-2 md:pt-10 pb-2 md:pb-6 bg-background">
+        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
           
           {/* Text Content */}
           <div className="flex flex-col items-start max-w-lg order-2 lg:order-1">
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">FEATURED PRODUCT</span>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-logo text-[#212529] mb-4 leading-[1.05] tracking-wide">
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-2 md:mb-4 block">FEATURED PRODUCT</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-logo text-[#212529] mb-4 leading-[1.05] tracking-wide">
               Mega Bunny 3L
             </h2>
             
             {/* Inline Color Selection */}
-            <div className="mb-8 w-full">
-              <h3 className="text-[#1A1A1A] font-bold text-lg mb-4">Color</h3>
-              <div className="flex flex-wrap gap-4">
+            <div className="mb-6 md:mb-8 w-full">
+              <h3 className="text-[#1A1A1A] font-bold text-lg mb-3 md:mb-4">Color</h3>
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 {MEGA_BUNNY_VARIANTS.map((variant) => {
                   const isSelected = selectedMegaBunny.name === variant.name;
                   const bgClass = variant.name === 'Blue' ? 'bg-[#3B82F6]' 
@@ -324,9 +323,9 @@ export default function Home() {
                     <button
                       key={variant.name}
                       onClick={() => setSelectedMegaBunny(variant)}
-                      className={`flex items-center gap-3 px-6 py-2.5 rounded-full border-2 transition-all bg-white text-[#1A1A1A] font-medium text-base ${isSelected ? 'border-slate-400 shadow-sm scale-105' : 'border-slate-100 hover:border-slate-200 hover:scale-105'}`}
+                      className={`flex items-center gap-2.5 md:gap-3 px-5 md:px-6 py-2 md:py-2.5 rounded-full border-2 transition-all bg-white text-[#1A1A1A] font-medium text-sm md:text-base ${isSelected ? 'border-slate-400 shadow-sm scale-105' : 'border-slate-100 hover:border-slate-200 hover:scale-105'}`}
                     >
-                      <span className={`w-5 h-5 rounded-full ${bgClass} ${variant.name === 'White' ? 'border border-gray-200' : ''}`}></span>
+                      <span className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${bgClass} ${variant.name === 'White' ? 'border border-gray-200' : ''}`}></span>
                       {variant.name}
                     </button>
                   );
@@ -334,7 +333,7 @@ export default function Home() {
               </div>
             </div>
             
-            <p className="text-slate-600 text-lg mb-10 leading-relaxed font-medium">
+            <p className="text-slate-600 text-base md:text-lg mb-6 md:mb-10 leading-relaxed font-medium">
               Brighten up any room with our Mega Bunny 3L series drawers. Combining a playful design with sturdy construction, these cabinets offer spacious and stylish storage solutions. Easy to clean and incredibly durable, they're the perfect addition to organize your home.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
@@ -346,13 +345,13 @@ export default function Home() {
           </div>
 
           {/* Image Composition */}
-          <div className="relative w-full aspect-square flex items-center justify-center my-10 lg:my-0 order-1 lg:order-2">
+          <div className="relative w-full aspect-square max-h-72 sm:max-h-96 lg:max-h-none flex items-center justify-center my-2 lg:my-0 order-1 lg:order-2">
             {/* Main Product Image */}
             <img 
               key={selectedMegaBunny.name}
               src={selectedMegaBunny.src} 
               alt={`Mega Bunny ${selectedMegaBunny.name}`} 
-              className="relative z-10 h-[110%] md:h-[130%] lg:h-[150%] w-auto max-w-none object-contain drop-shadow-2xl animate-subtle-fade" 
+              className="relative z-10 h-[95%] sm:h-[110%] md:h-[130%] lg:h-[150%] w-auto max-w-none object-contain drop-shadow-2xl animate-subtle-fade" 
             />
           </div>
         </div>
@@ -369,14 +368,14 @@ export default function Home() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2">
           {[
             ...PRODUCTS.filter(p => p.id === 'drawers-golden-bunny-8828' || p.id === 'drawers-lucky-charm-5088'),
             ...PRODUCTS.filter(p => p.category === 'drawers' && p.id !== 'drawers-golden-bunny-8828' && p.id !== 'drawers-lucky-charm-5088').slice(0, 2)
           ].map((product) => {
             const displayImage = product.mainImage;
             return (
-            <Link key={product.id} to={`/products/${product.id}`} className="group w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
               <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                 <img 
                   src={displayImage} 
@@ -397,6 +396,19 @@ export default function Home() {
               </div>
             </Link>
           )})}
+        </div>
+
+        {/* Mobile Swipe Indicator */}
+        <div className="flex flex-col items-center gap-2 mt-4 lg:hidden">
+          <div className="flex items-center gap-1.5">
+            <span className="w-6 h-2 bg-[#1A1A1A] rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+          </div>
+          <span className="text-xs font-semibold text-slate-400 tracking-wider flex items-center gap-1">
+            Swipe left to explore <ChevronRight className="w-3.5 h-3.5 inline animate-pulse" />
+          </span>
         </div>
         <div className="flex justify-center mt-12">
           <Link to="/products?category=drawers" className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
@@ -484,12 +496,12 @@ export default function Home() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2">
           {PRODUCTS.filter(p => p.category === 'chairs' && p.id !== 'chairs-198-diamond-stool').slice(0, 4).map((product, idx) => {
             const colors = ['green', 'white', 'beige', 'orange'];
             const displayImage = product.images.find(img => img.toLowerCase().includes(colors[idx])) || product.mainImage;
             return (
-            <Link key={product.id} to={`/products/${product.id}`} className="group w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
               <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                 <img 
                   src={displayImage} 
@@ -510,6 +522,19 @@ export default function Home() {
               </div>
             </Link>
           )})}
+        </div>
+
+        {/* Mobile Swipe Indicator */}
+        <div className="flex flex-col items-center gap-2 mt-4 lg:hidden">
+          <div className="flex items-center gap-1.5">
+            <span className="w-6 h-2 bg-[#1A1A1A] rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+            <span className="w-2 h-2 bg-slate-300 rounded-full"></span>
+          </div>
+          <span className="text-xs font-semibold text-slate-400 tracking-wider flex items-center gap-1">
+            Swipe left to explore <ChevronRight className="w-3.5 h-3.5 inline animate-pulse" />
+          </span>
         </div>
         <div className="flex justify-center mt-12">
           <Link to="/products" className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
@@ -543,15 +568,15 @@ export default function Home() {
           <div 
             ref={testimonialsRef}
             onScroll={handleTestimonialScroll}
-            className="flex overflow-x-auto gap-6 md:gap-8 pb-8 snap-x snap-mandatory scrollbar-none w-full scroll-smooth"
+            className="flex overflow-x-auto gap-5 md:gap-8 pb-8 snap-x snap-mandatory scrollbar-none w-full scroll-smooth"
           >
             {testimonials.map((t, i) => {
               return (
               <div 
                 key={i} 
-                className={`group shrink-0 w-full sm:w-100 md:w-112.5 p-8 md:p-12 rounded-3xl snap-start flex flex-col justify-between min-h-87.5 transition-colors duration-500 bg-white hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white border border-slate-100 shadow-sm hover:shadow-xl`}
+                className={`group shrink-0 w-[82vw] sm:w-100 md:w-112.5 p-6 md:p-12 rounded-3xl snap-center flex flex-col justify-between min-h-72 md:min-h-87.5 transition-colors duration-500 bg-white hover:bg-[#1A1A1A] text-[#1A1A1A] hover:text-white border border-slate-100 shadow-sm hover:shadow-xl`}
               >
-                <p className={`text-2xl md:text-3xl leading-snug tracking-tight mb-12 transition-colors duration-500 text-[#1A1A1A] group-hover:text-white`}>
+                <p className={`text-xl md:text-3xl leading-snug tracking-tight mb-8 md:mb-12 transition-colors duration-500 text-[#1A1A1A] group-hover:text-white`}>
                   {t.text}
                 </p>
                 <div className="flex items-center gap-4">

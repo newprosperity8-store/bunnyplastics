@@ -99,17 +99,17 @@ export default function About() {
               className="absolute inset-0 pointer-events-none"
               style={{ clipPath: 'inset(-100% -100% 0 -100% round 0 0 2.5rem 2.5rem)' }}
             >
-              <div className="absolute bottom-0 right-0 w-full h-full flex justify-end items-end">
-                 <div className="flex items-end -mr-10 md:-mr-16 translate-y-24 md:translate-y-40">
+              <div className="absolute bottom-0 left-0 w-full h-full flex justify-center items-end">
+                 <div className="flex items-end justify-center mx-auto translate-y-24 md:translate-y-40">
                     <img 
                       src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 
                       alt="Mega Bunny Brown" 
-                      className="w-56 sm:w-72 md:w-80 lg:w-104 drop-shadow-2xl z-10 -mr-32 sm:-mr-40 md:-mr-56 lg:-mr-72" 
+                      className="w-48 sm:w-64 md:w-80 lg:w-96 drop-shadow-2xl z-10 -mr-24 sm:-mr-36" 
                     />
                     <img 
                       src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20White.webp" 
                       alt="Mega Bunny White" 
-                      className="w-64 sm:w-80 md:w-96 lg:w-120 drop-shadow-2xl z-20" 
+                      className="w-56 sm:w-72 md:w-88 lg:w-104 drop-shadow-2xl z-20" 
                     />
                   </div>
               </div>

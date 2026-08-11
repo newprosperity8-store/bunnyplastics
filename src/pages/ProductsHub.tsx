@@ -28,7 +28,7 @@ export default function ProductsHub() {
         style={{ backgroundImage: "url('/images/banners/banner2.webp')" }}
       >
         <div className="flex flex-col items-center z-30 w-full text-center mt-10">
-          <h2 className="text-[5rem] sm:text-[8rem] md:text-[11rem] leading-[0.8] font-logo text-white tracking-tighter -mb-6 md:-mb-10 relative z-0">BUNNY</h2>
+          <h2 className="text-[4.5rem] sm:text-[8rem] md:text-[11rem] leading-[0.8] font-logo text-white tracking-wide -mb-4 md:-mb-10 relative z-0">BUNNY</h2>
           
           <div className="w-full max-w-xl px-6 relative z-10">
             <div className="relative flex items-center w-full h-14 md:h-16 rounded-full focus-within:shadow-xl bg-white overflow-hidden shadow-lg ring-2 ring-transparent hover:ring-[#1A1A1A] transition-all duration-300">
@@ -46,47 +46,28 @@ export default function ProductsHub() {
         </div>
       </section>
 
-
-
       {/* Top Categories Navigation */}
-      <div className="w-full bg-background border-b border-slate-200 pt-8 pb-0 overflow-x-auto scrollbar-none">
+      <div className="w-full bg-background border-b border-slate-200 py-4 md:py-6 overflow-x-auto scrollbar-none sticky top-20 z-40 bg-white/95 backdrop-blur-md">
         <div className="container mx-auto px-4">
-          <div className="flex items-end justify-center min-w-max gap-4 md:gap-10">
-            <button 
-              onClick={() => { setActiveCategory('storage-box'); setSelectedColor('All Colors'); }}
-              className={`flex flex-col items-center justify-center w-32 md:w-40 pb-6 border-b-2 transition-colors group ${activeCategory === 'storage-box' ? 'border-[#1A1A1A] text-[#1A1A1A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
-            >
-              <img src="https://img.icons8.com/ios/50/box--v1.webp" alt="Storage Box" className="w-7 h-7 md:w-8 md:h-8 mb-3 opacity-60 group-hover:opacity-100 transition-opacity" style={{ filter: activeCategory === 'storage-box' ? 'opacity(1) brightness(0)' : 'brightness(0) opacity(0.6)' }} />
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center">Storage Box</span>
-            </button>
-            <button 
-              onClick={() => { setActiveCategory('chairs'); setSelectedColor('All Colors'); }}
-              className={`flex flex-col items-center justify-center w-32 md:w-40 pb-6 border-b-2 transition-colors group ${activeCategory === 'chairs' ? 'border-[#1A1A1A] text-[#1A1A1A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
-            >
-              <img src="https://img.icons8.com/ios/50/chair.webp" alt="Chairs" className="w-7 h-7 md:w-8 md:h-8 mb-3 opacity-60 group-hover:opacity-100 transition-opacity" style={{ filter: activeCategory === 'chairs' ? 'opacity(1) brightness(0)' : 'brightness(0) opacity(0.6)' }} />
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center">Chairs</span>
-            </button>
-            <button 
-              onClick={() => { setActiveCategory('dish-cabinets'); setSelectedColor('All Colors'); }}
-              className={`flex flex-col items-center justify-center w-32 md:w-40 pb-6 border-b-2 transition-colors group ${activeCategory === 'dish-cabinets' ? 'border-[#1A1A1A] text-[#1A1A1A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
-            >
-              <img src="https://img.icons8.com/ios/50/meal.webp" alt="Dish Cabinets" className="w-7 h-7 md:w-8 md:h-8 mb-3 opacity-60 group-hover:opacity-100 transition-opacity" style={{ filter: activeCategory === 'dish-cabinets' ? 'opacity(1) brightness(0)' : 'brightness(0) opacity(0.6)' }} />
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center">Dish Cabinets</span>
-            </button>
-            <button 
-              onClick={() => { setActiveCategory('drawers'); setSelectedColor('All Colors'); }}
-              className={`flex flex-col items-center justify-center w-32 md:w-40 pb-6 border-b-2 transition-colors group ${activeCategory === 'drawers' ? 'border-[#1A1A1A] text-[#1A1A1A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
-            >
-              <img src="https://img.icons8.com/ios/50/bureau.webp" alt="Drawers" className="w-7 h-7 md:w-8 md:h-8 mb-3 opacity-60 group-hover:opacity-100 transition-opacity" style={{ filter: activeCategory === 'drawers' ? 'opacity(1) brightness(0)' : 'brightness(0) opacity(0.6)' }} />
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center">Drawers</span>
-            </button>
-            <button 
-              onClick={() => { setActiveCategory('tables'); setSelectedColor('All Colors'); }}
-              className={`flex flex-col items-center justify-center w-32 md:w-40 pb-6 border-b-2 transition-colors group ${activeCategory === 'tables' ? 'border-[#1A1A1A] text-[#1A1A1A]' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
-            >
-              <img src="https://img.icons8.com/ios/50/table.webp" alt="Tables" className="w-7 h-7 md:w-8 md:h-8 mb-3 opacity-60 group-hover:opacity-100 transition-opacity" style={{ filter: activeCategory === 'tables' ? 'opacity(1) brightness(0)' : 'brightness(0) opacity(0.6)' }} />
-              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center">Tables</span>
-            </button>
+          <div className="flex items-center justify-start md:justify-center gap-2.5 md:gap-4 overflow-x-auto scrollbar-none pb-1 px-2">
+            {[
+              { id: 'chairs', name: 'Chairs' },
+              { id: 'drawers', name: 'Drawers' },
+              { id: 'dish-cabinets', name: 'Dish Cabinets' },
+              { id: 'storage-box', name: 'Storage Box' },
+              { id: 'tables', name: 'Tables' }
+            ].map((cat) => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <button 
+                  key={cat.id}
+                  onClick={() => { setActiveCategory(cat.id); setSelectedColor('All Colors'); }}
+                  className={`shrink-0 flex items-center justify-center px-5 py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 ${isActive ? 'bg-[#1A1A1A] text-white shadow-md scale-105 ring-2 ring-[#1A1A1A]/20' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                >
+                  {cat.name}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
