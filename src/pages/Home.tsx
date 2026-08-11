@@ -183,21 +183,21 @@ export default function Home() {
             <div 
               onScroll={(e) => {
                 const container = e.currentTarget;
-                const idx = Math.min(CATEGORIES.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.44))));
+                const idx = Math.min(CATEGORIES.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.45))));
                 setCatScrollIdx(idx);
               }}
-              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 md:gap-8 w-full md:grid md:grid-cols-3 lg:grid-cols-5 pb-4 px-2 -mx-2"
+              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-3 sm:gap-4 md:gap-8 w-full md:grid md:grid-cols-3 lg:grid-cols-5 pb-4 px-1 -mx-1"
             >
               {CATEGORIES.map((cat, idx) => (
                 <Link 
                   to={`/products?category=${cat.id}`} 
                   key={idx} 
-                  className="w-[44vw] md:w-auto shrink-0 snap-start snap-always bg-white p-4 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center group cursor-pointer"
+                  className="w-[43vw] sm:w-[45vw] md:w-auto shrink-0 snap-start snap-always bg-transparent p-2 sm:p-4 md:p-0 border-none shadow-none flex flex-col items-center group cursor-pointer"
                 >
-                  <div className="w-full h-36 md:h-48 flex items-center justify-center p-2 md:p-3 mb-2 md:mb-4 transition-transform duration-500 group-hover:-translate-y-2">
+                  <div className="w-full h-32 sm:h-36 md:h-48 flex items-center justify-center p-1 sm:p-2 md:p-3 mb-2 md:mb-4 transition-transform duration-500 group-hover:-translate-y-2">
                     <img src={cat.src} alt={cat.name} className="max-w-full max-h-full w-auto h-auto object-contain mix-blend-multiply drop-shadow-sm" />
                   </div>
-                  <h4 className="text-lg md:text-2xl font-logo tracking-wider text-center text-[#1A1A1A] group-hover:text-primary transition-colors">{cat.name}</h4>
+                  <h4 className="text-base sm:text-lg md:text-2xl font-logo tracking-wider text-center text-[#1A1A1A] group-hover:text-primary transition-colors">{cat.name}</h4>
                 </Link>
               ))}
             </div>
@@ -218,7 +218,7 @@ export default function Home() {
             </div>
 
             {/* View All Products Button */}
-            <div className="mt-12 md:mt-16 mb-12 md:mb-20 flex justify-center">
+            <div className="mt-10 md:mt-16 mb-8 md:mb-20 flex justify-center">
               <Link to="/products" className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
                 View All Products
                 <ChevronRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
@@ -226,8 +226,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Scattered Polaroid Gallery */}
-          <div className="w-full relative pt-12 md:pt-16 -mb-4 flex justify-center items-center -space-x-6 sm:-space-x-10 md:-space-x-14 lg:-space-x-20 z-10">
+          {/* Scattered Polaroid Gallery - Brought slightly lower on mobile */}
+          <div className="w-full relative pt-14 sm:pt-16 -mb-1 sm:-mb-4 translate-y-3 sm:translate-y-0 flex justify-center items-center -space-x-6 sm:-space-x-10 md:-space-x-14 lg:-space-x-20 z-10">
             {[
               { src: '/images/Chairs/Chairs/101/101A beige.webp', rotate: '-rotate-12', translateY: 'translate-y-10 md:translate-y-16', zIndex: 'z-10', widthClass: 'w-24 sm:w-32 md:w-48 lg:w-60' },
               { src: '/images/Storage Box/Storage Box/Black/111-L black.webp', rotate: 'rotate-6', translateY: '-translate-y-2 md:-translate-y-4', zIndex: 'z-20', widthClass: 'w-24 sm:w-32 md:w-48 lg:w-60' },
@@ -255,11 +255,11 @@ export default function Home() {
         </div>
 
         {/* Latest Furniture Collection (OUR BESTSELLERS) */}
-        <div className="relative overflow-hidden w-full bg-primary pt-16 pb-24 md:pt-24 md:pb-32">
+        <div className="relative overflow-hidden w-full bg-primary pt-12 pb-14 sm:pb-20 md:pt-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-12 xl:px-24">
           
           {/* Centered Massive Header */}
-          <div className="flex flex-col items-center justify-center mb-10 text-center relative">
+          <div className="flex flex-col items-center justify-center mb-8 sm:mb-10 text-center relative">
             <h2 className="text-5xl sm:text-7xl md:text-8xl xl:text-[10rem] font-logo tracking-wider uppercase text-center text-white pb-2 md:pb-8 leading-[0.9]">
               <span className="block">OUR</span>
               <span className="block">BESTSELLERS</span>
@@ -335,8 +335,8 @@ export default function Home() {
       </section>
 
       {/* Feature Section (Mega Bunny 3L) */}
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
+      <section className="pt-6 pb-8 sm:py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 items-center">
           
           {/* Image Composition */}
           <div className="relative w-full aspect-square max-h-72 sm:max-h-96 lg:max-h-none flex items-center justify-center my-2 lg:my-0 order-1 lg:order-2">
@@ -421,8 +421,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="my-12 md:my-24 py-10 md:py-16 container mx-auto px-6 md:px-12 xl:px-24 bg-background">
-        <div className="flex flex-col items-center mb-12 text-center">
+      <section className="my-4 sm:my-12 md:my-24 py-6 sm:py-10 md:py-16 container mx-auto px-6 md:px-12 xl:px-24 bg-background">
+        <div className="flex flex-col items-center mb-8 sm:mb-12 text-center">
           <h2 className="text-4xl md:text-5xl font-logo text-[#1A1A1A] mb-4">Explore More Drawers</h2>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">
             Discover our wide range of durable, stylish, and comfortable drawers perfect for any setting.
@@ -479,7 +479,7 @@ export default function Home() {
             &lt; Swipe &gt;
           </span>
         </div>
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-8 sm:mt-12">
           <Link to="/products?category=drawers" className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
             View All Drawers
             <ChevronRight className="ml-2 w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
@@ -487,7 +487,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-8 sm:py-16 md:py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           <div className="relative w-full aspect-square flex items-center justify-center my-6 lg:my-0">
