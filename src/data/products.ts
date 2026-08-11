@@ -886,22 +886,24 @@ export const PRODUCTS: Product[] = [
   },
   {
     "id": "tables-kiddie-table",
-    "name": "",
+    "name": "Kiddie Table",
     "category": "tables",
     "images": [
-      "/images/Tables/Tables/Kiddie Table/IMG_0968.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_0977.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_0978(1).webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_0990.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_0993.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_0996.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_1003.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_1006.webp",
-      "/images/Tables/Tables/Kiddie Table/IMG_9615.webp"
+      "/images/Tables/Tables/Kiddie Table/kiddie blue.webp",
+      "/images/Tables/Tables/Kiddie Table/kiddie green.webp",
+      "/images/Tables/Tables/Kiddie Table/kiddie pink.webp",
+      "/images/Tables/Tables/Kiddie Table/kiddie red.webp",
+      "/images/Tables/Tables/Kiddie Table/kiddie yellow.webp"
     ],
-    "mainImage": "/images/Tables/Tables/Kiddie Table/IMG_0968.webp",
-    "colors": [],
-    "code": "Kiddie Table",
-    "spec": ""
+    "mainImage": "/images/Tables/Tables/Kiddie Table/kiddie blue.webp",
+    "colors": [
+      "Blue",
+      "Green",
+      "Pink",
+      "Red",
+      "Yellow"
+    ],
+    "code": "8823",
+    "spec": "20.5 x 20.5 x 18"
   }
 ];

@@ -193,8 +193,8 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 w-full">
               {CATEGORIES.map((cat, idx) => (
                 <Link to={`/products?category=${cat.id}`} key={idx} className="flex flex-col items-center group cursor-pointer">
-                  <div className="w-full aspect-square flex items-center justify-center p-2 mb-4 transition-transform duration-500 group-hover:-translate-y-2">
-                    <img src={cat.src} alt={cat.name} className="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-sm" />
+                  <div className="w-full h-40 md:h-48 flex items-center justify-center p-3 mb-4 transition-transform duration-500 group-hover:-translate-y-2">
+                    <img src={cat.src} alt={cat.name} className="max-w-full max-h-full w-auto h-auto object-contain mix-blend-multiply drop-shadow-sm" />
                   </div>
                   <h4 className="text-xl md:text-2xl font-logo tracking-wider text-center text-[#1A1A1A] group-hover:text-primary transition-colors">{cat.name}</h4>
                 </Link>
