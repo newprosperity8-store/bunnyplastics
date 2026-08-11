@@ -73,14 +73,14 @@ export default function About() {
               </h3>
             </div>
             <div className="lg:w-2/3 w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 w-full">
-                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full">
+                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory1.webp" alt="BunnyPlastics Manufacturing Facility 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all sm:-translate-y-4">
+                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory2.webp" alt="BunnyPlastics Manufacturing Facility 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all">
+                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory3.webp" alt="BunnyPlastics Manufacturing Facility 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
@@ -88,30 +88,46 @@ export default function About() {
           </div>
 
           {/* CTA Section */}
-          <div className="bg-[#1A1A1A] rounded-[2.5rem] w-full relative mt-40 md:mt-48">
-            {/* Bursting Images on the Right */}
+          <div className="bg-[#1A1A1A] rounded-[2.5rem] w-full relative mt-32 md:mt-48 overflow-hidden md:overflow-visible">
+            {/* Desktop-Only Bursting Images on the Right */}
             <div 
-              className="absolute inset-0 pointer-events-none"
+              className="absolute inset-0 pointer-events-none hidden md:block"
               style={{ clipPath: 'inset(-100% -100% 0 -100% round 0 0 2.5rem 2.5rem)' }}
             >
-              <div className="absolute bottom-0 left-0 w-full h-full flex justify-center items-end">
-                 <div className="flex items-end justify-center mx-auto translate-y-24 md:translate-y-40">
+              <div className="absolute bottom-0 right-0 w-full h-full flex justify-end items-end">
+                 <div className="flex items-end -mr-10 md:-mr-16 translate-y-24 md:translate-y-40">
                     <img 
                       src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 
                       alt="Mega Bunny Brown" 
-                      className="w-48 sm:w-64 md:w-80 lg:w-96 drop-shadow-2xl z-10 -mr-24 sm:-mr-36" 
+                      className="w-56 sm:w-72 md:w-80 lg:w-104 drop-shadow-2xl z-10 -mr-32 sm:-mr-40 md:-mr-56 lg:-mr-72" 
                     />
                     <img 
                       src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20White.webp" 
                       alt="Mega Bunny White" 
-                      className="w-56 sm:w-72 md:w-88 lg:w-104 drop-shadow-2xl z-20" 
+                      className="w-64 sm:w-80 md:w-96 lg:w-120 drop-shadow-2xl z-20" 
                     />
                   </div>
               </div>
             </div>
 
+            {/* Mobile-Only Wardrobes (Centered in Mobile View) */}
+            <div className="block md:hidden w-full pt-8 flex justify-center items-center">
+              <div className="flex items-end justify-center -mb-4">
+                <img 
+                  src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 
+                  alt="Mega Bunny Brown" 
+                  className="w-32 sm:w-40 h-auto drop-shadow-xl z-10 -mr-14" 
+                />
+                <img 
+                  src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20White.webp" 
+                  alt="Mega Bunny White" 
+                  className="w-36 sm:w-44 h-auto drop-shadow-xl z-20" 
+                />
+              </div>
+            </div>
+
             {/* Content */}
-            <div className="p-10 md:p-16 flex flex-col md:flex-row items-center justify-between relative z-10">
+            <div className="p-8 md:p-16 flex flex-col md:flex-row items-center justify-between relative z-10">
               <div className="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-logo text-white mb-4">Ready to get started?</h3>
                 <p className="text-white mb-8 max-w-md text-sm md:text-base leading-relaxed">
@@ -119,14 +135,14 @@ export default function About() {
                 </p>
                 <Link 
                   to="/distributors"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-[#1A1A1A] rounded-full font-bold text-sm tracking-widest uppercase hover:bg-slate-200 transition-colors group"
+                  className="inline-flex items-center justify-center px-8 py-3 bg-white text-[#1A1A1A] rounded-full font-bold text-sm tracking-widest uppercase hover:bg-slate-200 transition-colors group cursor-pointer"
                 >
                   Apply Now
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
-              <div className="md:w-1/2 w-full h-64 md:h-auto"></div>
+              <div className="hidden md:block md:w-1/2 w-full h-64 md:h-auto"></div>
             </div>
           </div>
 
