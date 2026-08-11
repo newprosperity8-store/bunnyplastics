@@ -80,7 +80,7 @@ const BESTSELLERS = [
   },
   {
     number: "06",
-    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Golden Bunny 8828/8828 Golden Bunny Blue.webp",
+    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Golden Bunny 8828/8828 Goden Bunny Blue.webp",
     name: "Golden Bunny",
     category: "Drawers",
     productId: "drawers-golden-bunny-8828",
