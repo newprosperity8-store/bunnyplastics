@@ -231,17 +231,28 @@ export default function ProductDetail() {
               <Button 
                 size="lg" 
                 onClick={handleAddToCart}
-                className="flex-1 shadow-md text-lg h-14 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center gap-2"
+                className="flex-1 shadow-md text-lg h-14 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center gap-2 cursor-pointer"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Add to Cart
               </Button>
             </div>
-            <Link to="/contact" className="w-full">
-              <Button size="lg" variant="outline" className="w-full text-lg h-14 rounded-full border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700">
-                Contact Us
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => {
+                const subject = `Inquiry regarding ${product.name}`;
+                const codeStr = product.code ? ` (Code: ${product.code})` : '';
+                const sizeStr = selectedSize ? `\n- Size: ${selectedSize}` : '';
+                const colorStr = selectedColor ? `\n- Color: ${selectedColor}` : '';
+                const qtyStr = `\n- Quantity: ${qty}`;
+                const body = `Hi BunnyPlastics Team,\n\nI am interested in inquiring about ${product.name}${codeStr}.${colorStr}${sizeStr}${qtyStr}\n\nPlease reply with product availability, pricing, and ordering instructions.\n\nThank you!`;
+                window.location.href = `mailto:newprosperity.8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}
+              className="w-full text-lg h-14 rounded-full border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 cursor-pointer"
+            >
+              Contact Us
+            </Button>
           </div>
 
           <div className="prose prose-slate text-[#5C4F4A] font-medium leading-relaxed">

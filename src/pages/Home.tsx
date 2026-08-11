@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronRight, Quote, ArrowLeft, ArrowRight, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PRODUCTS } from '../data/products';
@@ -80,11 +80,46 @@ export default function Home() {
   const [selectedMegaBunny, setSelectedMegaBunny] = useState(MEGA_BUNNY_VARIANTS[0]);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const testimonialsRef = useRef<HTMLDivElement>(null);
+  const bestsellersRef = useRef<HTMLDivElement>(null);
 
   const [catScrollIdx, setCatScrollIdx] = useState(0);
   const [bestsellersScrollIdx, setBestsellersScrollIdx] = useState(0);
   const [drawersScrollIdx, setDrawersScrollIdx] = useState(0);
   const [chairsScrollIdx, setChairsScrollIdx] = useState(0);
+
+  useEffect(() => {
+    const el = bestsellersRef.current;
+    if (!el) return;
+    let animationFrameId: number;
+    let isHovered = false;
+
+    const handleMouseEnter = () => { isHovered = true; };
+    const handleMouseLeave = () => { isHovered = false; };
+
+    el.addEventListener('mouseenter', handleMouseEnter);
+    el.addEventListener('mouseleave', handleMouseLeave);
+
+    const scroll = () => {
+      if (el && !isHovered) {
+        if (el.scrollLeft >= el.scrollWidth / 2) {
+          el.scrollLeft = 0;
+        } else {
+          el.scrollLeft += 1;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    if (window.innerWidth >= 768) {
+      animationFrameId = requestAnimationFrame(scroll);
+    }
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      el.removeEventListener('mouseenter', handleMouseEnter);
+      el.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
 
   const testimonials = [
     {
@@ -300,20 +335,58 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Swipeable Bestseller Cards Layout */}
+          {/* Mobile Swipeable Bestseller Cards */}
           <div 
             onScroll={(e) => {
               const container = e.currentTarget;
               const idx = Math.min(BESTSELLERS.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
               setBestsellersScrollIdx(idx);
             }}
-            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 md:gap-8 pb-8 pt-4 w-full items-stretch"
+            className="flex md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 pb-8 pt-4 w-full items-stretch"
           >
             {BESTSELLERS.map((item, idx) => (
               <Link 
                 to={`/products/${item.productId}`}
                 key={idx} 
                 className="w-[80vw] sm:w-[320px] shrink-0 snap-center snap-always flex flex-col cursor-pointer group"
+              >
+                {/* External Number */}
+                <span className="text-2xl font-logo text-white mb-3 ml-4">{item.number}</span>
+                
+                {/* The Card */}
+                <div className="w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-slate-200">
+                  
+                  {/* Image Container */}
+                  <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
+                    <img src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
+                  </div>
+                  
+                  {/* Text Container */}
+                  <div className="w-full flex flex-col items-start px-2 pb-2">
+                    <h3 className="text-xl md:text-2xl font-logo tracking-widest text-[#1A1A1A] mb-1 uppercase line-clamp-1">{item.name}</h3>
+                    <p className="text-xs md:text-sm text-slate-400 capitalize">{item.category}</p>
+                    <div className="w-full mt-4">
+                      <div className="w-full bg-transparent border-2 border-[#1A1A1A] text-[#1A1A1A] py-2.5 rounded-full font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors flex items-center justify-center gap-2">
+                        View Details
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop & Tablet Continuous Auto-Scrolling Marquee */}
+          <div 
+            ref={bestsellersRef}
+            className="hidden md:flex overflow-x-auto scrollbar-none gap-8 pb-8 pt-4 w-full items-stretch"
+          >
+            {[...BESTSELLERS, ...BESTSELLERS].map((item, idx) => (
+              <Link 
+                to={`/products/${item.productId}`}
+                key={idx} 
+                className="w-[320px] shrink-0 flex flex-col cursor-pointer group"
               >
                 {/* External Number */}
                 <span className="text-2xl font-logo text-white mb-3 ml-4">{item.number}</span>
