@@ -242,7 +242,7 @@ export default function RootLayout() {
               <div className="mt-auto flex flex-col items-center md:items-start gap-3">
                 <h4 className="font-sans text-sm font-bold tracking-widest uppercase text-white">Contact Us</h4>
                 <div className="flex gap-4 mt-2 justify-center md:justify-start">
-                  <a href="#" className="flex items-center justify-center hover:scale-110 transition-transform">
+                  <a href="https://www.facebook.com/bunnyplasticproducts/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center hover:scale-110 transition-transform">
                     <img src="/images/icons/facebook_icon.webp" alt="Facebook" className="w-10 h-10 object-contain" />
                   </a>
                   <a href="tel:283638924" className="flex items-center justify-center hover:scale-110 transition-transform">
