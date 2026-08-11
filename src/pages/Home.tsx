@@ -185,8 +185,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Desktop & Tablet Big BUNNY Text at Bottom of Hero */}
-        <div className="hidden md:flex absolute bottom-0 left-0 w-full flex-col items-center justify-center z-30 translate-y-[-5%] pointer-events-none">
+        {/* Desktop & Tablet Big BUNNY Text at Bottom of Hero (Behind the Wave) */}
+        <div className="hidden md:flex absolute bottom-0 left-0 w-full flex-col items-center justify-center z-15 translate-y-[-5%] pointer-events-none">
           <h1 className="text-[9rem] md:text-[13rem] leading-[0.8] font-logo text-background tracking-wide text-center drop-shadow-md">
             BUNNY
           </h1>
@@ -369,7 +369,7 @@ export default function Home() {
       </section>
 
       {/* Feature Section (Mega Bunny 3L) */}
-      <section className="pt-6 pb-8 sm:py-16 md:py-24 bg-background">
+      <section className="pt-2 md:pt-4 pb-8 md:pb-20 bg-background">
         <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 items-center">
           
           {/* Image Composition */}

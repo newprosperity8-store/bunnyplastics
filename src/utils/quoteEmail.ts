@@ -1,6 +1,6 @@
 import type { CartItem } from '../context/CartContext';
 
-export const RECIPIENT_EMAIL = 'bunnyplastics.ph@gmail.com';
+export const RECIPIENT_EMAIL = 'newprosperity.8@gmail.com';
 
 /**
  * Security layer: Sanitizes user input against CRLF injection, XSS, and header tampering.
