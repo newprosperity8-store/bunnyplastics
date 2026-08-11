@@ -331,6 +331,8 @@ export default function Home() {
 
         {/* Latest Furniture Collection (OUR BESTSELLERS) */}
         <div className="relative overflow-hidden w-full bg-primary pt-12 pb-14 sm:pb-20 md:pt-24 md:pb-32">
+          
+          {/* Header & Mobile Content inside container */}
           <div className="container mx-auto px-6 md:px-12 xl:px-24">
           
           {/* Mobile Header (2 Lines) */}
@@ -341,9 +343,9 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Desktop & Tablet Header (Single Line) */}
+          {/* Desktop & Tablet Header (Single Line - Bigger with original letter spacing) */}
           <div className="hidden md:flex flex-col items-center justify-center mb-10 text-center relative">
-            <h2 className="text-6xl md:text-8xl xl:text-[10rem] leading-[0.9] font-logo tracking-wider uppercase pointer-events-none select-none whitespace-nowrap pb-8 text-white">
+            <h2 className="text-[5rem] md:text-[8rem] lg:text-[10rem] xl:text-[12rem] leading-[0.85] font-logo tracking-tighter uppercase pointer-events-none select-none whitespace-nowrap pb-8 text-white">
               OUR BESTSELLERS
             </h2>
           </div>
@@ -390,10 +392,27 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Desktop & Tablet Continuous Auto-Scrolling Marquee with Staggered Layout */}
+          {/* Bestsellers Mobile Swipe Indicator */}
+          <div className="flex flex-col items-center gap-2 mt-4 md:hidden">
+            <div className="flex items-center gap-1.5">
+              {BESTSELLERS.map((_, idx) => (
+                <span 
+                  key={idx} 
+                  className={`transition-all duration-300 rounded-full ${idx === bestsellersScrollIdx ? 'w-6 h-2 bg-white' : 'w-2 h-2 bg-white/40'}`}
+                />
+              ))}
+            </div>
+            <span className="text-xs font-semibold text-white/80 tracking-widest flex items-center gap-1 uppercase">
+              &lt; Swipe &gt;
+            </span>
+          </div>
+
+          </div>
+
+          {/* Desktop & Tablet Full-Width Seamless Marquee (outside container for edge-to-edge) */}
           <div 
             ref={bestsellersRef}
-            className="hidden md:flex overflow-x-auto scrollbar-none gap-8 pb-16 pt-4 w-full items-start"
+            className="hidden md:flex overflow-x-hidden scrollbar-none gap-8 pb-16 pt-4 w-full items-start"
           >
             {[...BESTSELLERS, ...BESTSELLERS].map((item, idx) => (
               <Link 
@@ -425,23 +444,6 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-
-          {/* Bestsellers Mobile Swipe Indicator */}
-          <div className="flex flex-col items-center gap-2 mt-4 md:hidden">
-            <div className="flex items-center gap-1.5">
-              {BESTSELLERS.map((_, idx) => (
-                <span 
-                  key={idx} 
-                  className={`transition-all duration-300 rounded-full ${idx === bestsellersScrollIdx ? 'w-6 h-2 bg-white' : 'w-2 h-2 bg-white/40'}`}
-                />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-white/80 tracking-widest flex items-center gap-1 uppercase">
-              &lt; Swipe &gt;
-            </span>
-          </div>
-
           </div>
 
           {/* WAVY SVG BOTTOM CUTOUT RESTORED */}
