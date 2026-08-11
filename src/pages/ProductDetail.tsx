@@ -18,6 +18,7 @@ export default function ProductDetail() {
   const [isZooming, setIsZooming] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const { addToCart } = useCart();
+  const [relatedScrollIdx, setRelatedScrollIdx] = useState(0);
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -264,9 +265,16 @@ export default function ProductDetail() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div 
+            onScroll={(e) => {
+              const container = e.currentTarget;
+              const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+              setRelatedScrollIdx(idx);
+            }}
+            className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2"
+          >
             {relatedProducts.map(relatedProduct => (
-              <Link key={relatedProduct.id} to={`/products/${relatedProduct.id}`} className="group w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+              <Link key={relatedProduct.id} to={`/products/${relatedProduct.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
                 <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                   <img 
                     src={relatedProduct.mainImage} 
@@ -279,7 +287,7 @@ export default function ProductDetail() {
                   {relatedProduct.code && <p className="text-xs md:text-sm font-bold text-slate-500 uppercase tracking-widest mb-1">{relatedProduct.code}</p>}
                   <p className="text-xs md:text-sm text-slate-400 capitalize">{relatedProduct.category.replace('-', ' ')}</p>
                   <div className="w-full overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 mt-0 group-hover:max-h-16 group-hover:opacity-100 group-hover:mt-4">
-                    <button className="w-full bg-transparent border-2 border-[#1A1A1A] text-[#1A1A1A] py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:border-primary hover:text-white transition-colors flex items-center justify-center gap-2 group/btn">
+                    <button className="w-full bg-transparent border-2 border-[#1A1A1A] text-[#1A1A1A] py-2.5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:border-primary hover:text-white transition-colors flex items-center justify-center gap-2 group/btn">
                       View Details
                       <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
@@ -288,8 +296,24 @@ export default function ProductDetail() {
               </Link>
             ))}
           </div>
+
+          {/* Mobile Swipe Indicator */}
+          <div className="flex flex-col items-center gap-2 mt-4 lg:hidden">
+            <div className="flex items-center gap-1.5">
+              {relatedProducts.map((_, idx) => (
+                <span 
+                  key={idx} 
+                  className={`transition-all duration-300 rounded-full ${idx === relatedScrollIdx ? 'w-6 h-2 bg-[#1A1A1A]' : 'w-2 h-2 bg-slate-300'}`}
+                />
+              ))}
+            </div>
+            <span className="text-xs font-semibold text-slate-400 tracking-widest flex items-center gap-1 uppercase">
+              &lt; Swipe &gt;
+            </span>
+          </div>
+
           <div className="flex justify-center mt-12">
-            <Link to="/products" className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
+            <Link to="/products" className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-xs tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
               View All {product.category.replace('-', ' ')}
               <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>

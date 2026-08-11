@@ -47,24 +47,30 @@ export default function ProductsHub() {
       </section>
 
       {/* Top Categories Navigation */}
-      <div className="w-full bg-background border-b border-slate-200 py-4 md:py-6 overflow-x-auto scrollbar-none sticky top-20 z-40 bg-white/95 backdrop-blur-md">
+      <div className="w-full bg-background border-b border-slate-200 pt-6 pb-0 overflow-x-auto scrollbar-none sticky top-20 z-40 bg-white/95 backdrop-blur-md">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-start md:justify-center gap-2.5 md:gap-4 overflow-x-auto scrollbar-none pb-1 px-2">
+          <div className="flex items-center justify-start md:justify-center gap-6 md:gap-12 overflow-x-auto scrollbar-none pb-2 px-2">
             {[
-              { id: 'chairs', name: 'Chairs' },
-              { id: 'drawers', name: 'Drawers' },
-              { id: 'dish-cabinets', name: 'Dish Cabinets' },
-              { id: 'storage-box', name: 'Storage Box' },
-              { id: 'tables', name: 'Tables' }
+              { id: 'storage-box', name: 'Storage Box', icon: 'https://img.icons8.com/ios/50/box--v1.webp' },
+              { id: 'chairs', name: 'Chairs', icon: 'https://img.icons8.com/ios/50/chair.webp' },
+              { id: 'dish-cabinets', name: 'Dish Cabinets', icon: 'https://img.icons8.com/ios/50/meal.webp' },
+              { id: 'drawers', name: 'Drawers', icon: 'https://img.icons8.com/ios/50/bureau.webp' },
+              { id: 'tables', name: 'Tables', icon: 'https://img.icons8.com/ios/50/table.webp' }
             ].map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button 
                   key={cat.id}
                   onClick={() => { setActiveCategory(cat.id); setSelectedColor('All Colors'); }}
-                  className={`shrink-0 flex items-center justify-center px-5 py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 ${isActive ? 'bg-[#1A1A1A] text-white shadow-md scale-105 ring-2 ring-[#1A1A1A]/20' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`}
+                  className={`shrink-0 flex flex-col items-center justify-center pb-3 border-b-2 transition-all duration-300 group ${isActive ? 'border-[#1A1A1A] text-[#1A1A1A] scale-105' : 'border-transparent text-slate-400 hover:text-slate-600'}`}
                 >
-                  {cat.name}
+                  <img 
+                    src={cat.icon} 
+                    alt={cat.name} 
+                    className="w-7 h-7 md:w-8 md:h-8 mb-2 transition-all duration-300" 
+                    style={{ filter: isActive ? 'brightness(0) opacity(1)' : 'brightness(0) opacity(0.5)' }} 
+                  />
+                  <span className="text-[11px] md:text-xs font-bold uppercase tracking-widest text-center whitespace-nowrap">{cat.name}</span>
                 </button>
               );
             })}

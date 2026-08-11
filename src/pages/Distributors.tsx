@@ -11,6 +11,7 @@ import { Select } from '../components/ui/Select';
 
 export default function Distributors() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [partnerCardIdx, setPartnerCardIdx] = useState(0);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     firstName: '',
@@ -380,36 +381,58 @@ export default function Distributors() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 w-full mb-20">
-              <div className="flex flex-col items-center text-center group">
+            <div 
+              onScroll={(e) => {
+                const container = e.currentTarget;
+                const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+                setPartnerCardIdx(idx);
+              }}
+              className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 pb-6 px-2 -mx-2 md:grid md:grid-cols-3 md:gap-16 w-full mb-10 md:mb-20"
+            >
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
-                  <img src="/images/icons/quality.webp" alt="Unmatched Quality" className="w-24 h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
+                  <img src="/images/icons/quality.webp" alt="Unmatched Quality" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Unmatched Quality</h4>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                   Offer your customers products that are built to last. Our commitment to durability ensures satisfaction and repeat business.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center group">
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
-                  <img src="/images/icons/trusted.webp" alt="Trusted Brand" className="w-24 h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
+                  <img src="/images/icons/trusted.webp" alt="Trusted Brand" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Trusted Brand</h4>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                   Leverage our strong reputation. BunnyPlastics is recognized nationwide for reliability, making sales naturally easier.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center group">
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
-                  <img src="/images/icons/growth.webp" alt="Growth Support" className="w-24 h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
+                  <img src="/images/icons/growth.webp" alt="Growth Support" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <h4 className="text-xl font-bold text-[#1A1A1A] mb-4">Growth Support</h4>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                   Benefit from competitive margins, marketing materials, and a dedicated support team designed to help scale your retail business.
                 </p>
               </div>
+            </div>
+
+            {/* Mobile Swipe Indicator */}
+            <div className="flex flex-col items-center gap-2 mb-16 md:hidden">
+              <div className="flex items-center gap-1.5">
+                {[0, 1, 2].map((idx) => (
+                  <span 
+                    key={idx} 
+                    className={`transition-all duration-300 rounded-full ${idx === partnerCardIdx ? 'w-6 h-2 bg-[#1A1A1A]' : 'w-2 h-2 bg-slate-300'}`}
+                  />
+                ))}
+              </div>
+              <span className="text-xs font-semibold text-slate-400 tracking-widest flex items-center gap-1 uppercase">
+                &lt; Swipe &gt;
+              </span>
             </div>
 
             <div className="bg-[#1A1A1A] rounded-[2.5rem] w-full relative mt-40 md:mt-48">

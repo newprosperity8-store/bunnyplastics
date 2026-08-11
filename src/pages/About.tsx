@@ -72,22 +72,17 @@ export default function About() {
                 Since 1996, Bunny creates durable, thoughtfully designed plastic products that turn every Filipino house into an organized, beautiful home.
               </h3>
             </div>
-            <div className="lg:w-2/3 relative h-100 sm:h-125 md:h-150 w-full">
-              {/* Collage Images */}
-              <div className="absolute top-10 left-0 w-[35%] h-[50%]">
-                <img src="/images/factory/factory1.webp" alt="Factory 1" className="w-full h-full object-cover shadow-md border border-gray-100" />
-              </div>
-              <div className="absolute top-0 left-[30%] w-[35%] h-[60%] z-10">
-                <img src="/images/factory/factory2.webp" alt="Factory 2" className="w-full h-full object-cover shadow-md border border-gray-100" />
-              </div>
-              <div className="absolute top-20 right-0 w-[40%] h-[50%]">
-                <img src="/images/factory/factory3.webp" alt="Factory 3" className="w-full h-full object-cover shadow-md border border-gray-100" />
-              </div>
-              <div className="absolute bottom-0 left-[20%] w-[35%] h-[40%] z-20">
-                <img src="/images/factory/factory4.webp" alt="Factory 4" className="w-full h-full object-cover shadow-md border border-gray-100" />
-              </div>
-              <div className="absolute bottom-10 right-[25%] w-[30%] h-[35%] z-10">
-                <img src="/images/factory/factory5.webp" alt="Factory 5" className="w-full h-full object-cover shadow-md border border-gray-100" />
+            <div className="lg:w-2/3 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 w-full">
+                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all">
+                  <img src="/images/factory/factory1.webp" alt="BunnyPlastics Manufacturing Facility 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all sm:-translate-y-4">
+                  <img src="/images/factory/factory2.webp" alt="BunnyPlastics Manufacturing Facility 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="rounded-3xl overflow-hidden shadow-md aspect-4/3 border border-slate-100 hover:shadow-xl transition-all">
+                  <img src="/images/factory/factory3.webp" alt="BunnyPlastics Manufacturing Facility 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
               </div>
             </div>
           </div>

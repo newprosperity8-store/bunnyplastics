@@ -9,7 +9,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 export default function RootLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { cartCount, setIsCartOpen } = useCart();
+  const { cartCount, setIsCartOpen, isCartOpen } = useCart();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -17,7 +17,7 @@ export default function RootLayout() {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isCartOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -25,7 +25,7 @@ export default function RootLayout() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isCartOpen]);
 
   const isQuotePage = location.pathname === '/quote';
   const isWhiteBgPage = location.pathname.startsWith('/distributors') || location.pathname.startsWith('/products') || location.pathname.startsWith('/about');
@@ -232,16 +232,16 @@ export default function RootLayout() {
         <div className="container mx-auto px-6 md:px-12 xl:px-24">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0">
             {/* Left Column */}
-            <div className="flex flex-col h-full md:border-r border-white/20 md:pr-12 lg:pr-16 py-4">
-              <div className="flex flex-col gap-6 font-logo text-2xl md:text-3xl tracking-widest uppercase mb-12">
+            <div className="flex flex-col items-center md:items-start text-center md:text-left h-full md:border-r border-white/20 md:pr-12 lg:pr-16 py-4">
+              <div className="flex flex-col items-center md:items-start gap-6 font-logo text-2xl md:text-3xl tracking-widest uppercase mb-12">
                 <Link to="/" className="hover:text-primary transition-colors">Home</Link>
                 <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
                 <Link to="/about" className="hover:text-primary transition-colors">About Us</Link>
                 <Link to="/distributors" className="hover:text-primary transition-colors">Distributors</Link>
               </div>
-              <div className="mt-auto flex flex-col gap-3">
+              <div className="mt-auto flex flex-col items-center md:items-start gap-3">
                 <h4 className="font-sans text-sm font-bold tracking-widest uppercase text-white">Contact Us</h4>
-                <div className="flex gap-4 mt-2">
+                <div className="flex gap-4 mt-2 justify-center md:justify-start">
                   <a href="#" className="flex items-center justify-center hover:scale-110 transition-transform">
                     <img src="/images/icons/facebook_icon.webp" alt="Facebook" className="w-10 h-10 object-contain" />
                   </a>
@@ -253,7 +253,7 @@ export default function RootLayout() {
             </div>
 
             {/* Middle Column */}
-            <div className="flex flex-col justify-center h-full md:px-12 lg:px-16 text-center py-4">
+            <div className="flex flex-col items-center justify-center h-full md:px-12 lg:px-16 text-center py-4">
               <h3 className="text-4xl md:text-5xl font-logo mb-4 tracking-wide">Ready to get started?</h3>
               <p className="text-slate-300 mb-10 max-w-sm mx-auto leading-relaxed">
                 Register your store today and gain access to exclusive reseller benefits and new products!
@@ -266,7 +266,7 @@ export default function RootLayout() {
             </div>
 
             {/* Right Column */}
-            <div className="flex flex-col h-full md:border-l border-white/20 md:pl-12 lg:pl-16 text-right items-end py-4">
+            <div className="flex flex-col items-center md:items-end text-center md:text-right h-full md:border-l border-white/20 md:pl-12 lg:pl-16 py-4">
               <a 
                 href="https://maps.google.com/?q=54B+B.+Serrano+Street+corner+7th+Avenue,+Caloocan+City+1400,+Metro+Manila,+Philippines" 
                 target="_blank" 
@@ -286,9 +286,9 @@ export default function RootLayout() {
                  <div className="absolute inset-0 bg-[#1A1A1A]/30 group-hover:bg-transparent transition-colors"></div>
               </a>
 
-              <div className="mt-auto flex flex-col items-end gap-3 text-slate-300 font-medium">
+              <div className="mt-auto flex flex-col items-center md:items-end gap-3 text-slate-300 font-medium">
                 <h4 className="font-logo text-2xl md:text-3xl tracking-widest uppercase text-white">Visit Us At:</h4>
-                <div className="text-right leading-relaxed max-w-70">
+                <div className="text-center md:text-right leading-relaxed max-w-70">
                   <p>54B B. Serrano Street corner 7th Avenue, Caloocan City 1400, Metro Manila, Philippines</p>
                 </div>
               </div>
