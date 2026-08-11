@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
 import { CartDrawer } from '../components/CartDrawer';
 import { Button } from '../components/ui/Button';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 export default function RootLayout() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -295,6 +297,8 @@ export default function RootLayout() {
         </div>
       </footer>
       <CartDrawer />
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }

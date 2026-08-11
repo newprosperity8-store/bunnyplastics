@@ -12,6 +12,8 @@
   "dependencies": {
     "@aivangogh/ph-address": "^2026.2.1",
     "@tailwindcss/vite": "^4.3.1",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^1.21.0",
     "phil-address": "^2.0.1",
