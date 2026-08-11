@@ -12,6 +12,8 @@ const CHAIR_VARIANTS = [
 const MEGA_BUNNY_VARIANTS = [
   { name: 'Brown', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp' },
   { name: 'Blue', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Blue.webp' },
+  { name: 'Green', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA green.webp' },
+  { name: 'Pink', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Pink.webp' },
   { name: 'White', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA White.webp' }
 ];
 
@@ -181,7 +183,7 @@ export default function Home() {
             <div 
               onScroll={(e) => {
                 const container = e.currentTarget;
-                const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.44));
+                const idx = Math.min(CATEGORIES.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.44))));
                 setCatScrollIdx(idx);
               }}
               className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 md:gap-8 w-full md:grid md:grid-cols-3 lg:grid-cols-5 pb-4 px-2 -mx-2"
@@ -190,7 +192,7 @@ export default function Home() {
                 <Link 
                   to={`/products?category=${cat.id}`} 
                   key={idx} 
-                  className="w-[44vw] md:w-auto shrink-0 snap-start bg-white p-4 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center group cursor-pointer"
+                  className="w-[44vw] md:w-auto shrink-0 snap-start snap-always bg-white p-4 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center group cursor-pointer"
                 >
                   <div className="w-full h-36 md:h-48 flex items-center justify-center p-2 md:p-3 mb-2 md:mb-4 transition-transform duration-500 group-hover:-translate-y-2">
                     <img src={cat.src} alt={cat.name} className="max-w-full max-h-full w-auto h-auto object-contain mix-blend-multiply drop-shadow-sm" />
@@ -200,6 +202,7 @@ export default function Home() {
               ))}
             </div>
 
+            {/* Mobile Swipe Indicator */}
             <div className="flex flex-col items-center gap-2 mt-4 md:hidden">
               <div className="flex items-center gap-1.5">
                 {CATEGORIES.map((_, idx) => (
@@ -214,6 +217,7 @@ export default function Home() {
               </span>
             </div>
 
+            {/* View All Products Button */}
             <div className="mt-12 md:mt-16 mb-12 md:mb-20 flex justify-center">
               <Link to="/products" className="inline-flex items-center justify-center px-8 py-3 md:px-10 md:py-4 border-2 border-[#1A1A1A] rounded-full text-[#1A1A1A] font-bold text-xs md:text-sm tracking-widest uppercase hover:bg-primary hover:border-primary hover:text-white transition-colors group">
                 View All Products
@@ -222,6 +226,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Scattered Polaroid Gallery */}
           <div className="w-full relative pt-12 md:pt-16 -mb-4 flex justify-center items-center -space-x-6 sm:-space-x-10 md:-space-x-14 lg:-space-x-20 z-10">
             {[
               { src: '/images/Chairs/Chairs/101/101A beige.webp', rotate: '-rotate-12', translateY: 'translate-y-10 md:translate-y-16', zIndex: 'z-10', widthClass: 'w-24 sm:w-32 md:w-48 lg:w-60' },
@@ -241,6 +246,7 @@ export default function Home() {
             ))}
           </div>
 
+          {/* WAVY SVG BOTTOM CUTOUT */}
           <div className="absolute bottom-0 left-0 w-full leading-none z-20 pointer-events-none">
             <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block transform translate-y-px">
               <path fill="var(--color-primary)" fillOpacity="1" d="M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,106.7C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -248,9 +254,11 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Latest Furniture Collection (OUR BESTSELLERS) */}
         <div className="relative overflow-hidden w-full bg-primary pt-16 pb-24 md:pt-24 md:pb-32">
           <div className="container mx-auto px-6 md:px-12 xl:px-24">
           
+          {/* Centered Massive Header */}
           <div className="flex flex-col items-center justify-center mb-10 text-center relative">
             <h2 className="text-5xl sm:text-7xl md:text-8xl xl:text-[10rem] font-logo tracking-wider uppercase text-center text-white pb-2 md:pb-8 leading-[0.9]">
               <span className="block">OUR</span>
@@ -258,10 +266,11 @@ export default function Home() {
             </h2>
           </div>
 
+          {/* Swipeable Bestseller Cards Layout */}
           <div 
             onScroll={(e) => {
               const container = e.currentTarget;
-              const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+              const idx = Math.min(BESTSELLERS.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
               setBestsellersScrollIdx(idx);
             }}
             className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 md:gap-8 pb-8 pt-4 w-full items-stretch"
@@ -270,16 +279,20 @@ export default function Home() {
               <Link 
                 to={`/products/${item.productId}`}
                 key={idx} 
-                className="w-[80vw] sm:w-[320px] shrink-0 snap-center flex flex-col cursor-pointer group"
+                className="w-[80vw] sm:w-[320px] shrink-0 snap-center snap-always flex flex-col cursor-pointer group"
               >
+                {/* External Number */}
                 <span className="text-2xl font-logo text-white mb-3 ml-4">{item.number}</span>
                 
+                {/* The Card */}
                 <div className="w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-slate-200">
                   
+                  {/* Image Container */}
                   <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                     <img src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   
+                  {/* Text Container */}
                   <div className="w-full flex flex-col items-start px-2 pb-2">
                     <h3 className="text-xl md:text-2xl font-logo tracking-widest text-[#1A1A1A] mb-1 uppercase line-clamp-1">{item.name}</h3>
                     <p className="text-xs md:text-sm text-slate-400 capitalize">{item.category}</p>
@@ -295,6 +308,7 @@ export default function Home() {
             ))}
           </div>
 
+          {/* Bestsellers Mobile Swipe Indicator */}
           <div className="flex flex-col items-center gap-2 mt-4 md:hidden">
             <div className="flex items-center gap-1.5">
               {BESTSELLERS.map((_, idx) => (
@@ -310,60 +324,91 @@ export default function Home() {
           </div>
 
           </div>
+
+          {/* WAVY SVG BOTTOM CUTOUT RESTORED */}
+          <div className="absolute bottom-0 left-0 w-full leading-none z-20 pointer-events-none">
+            <svg viewBox="0 0 1440 160" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto block transform translate-y-px">
+              <path fill="#f8f9fa" fillOpacity="1" d="M0,96L48,106.7C96,117,192,139,288,128C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,106.7C1248,96,1344,64,1392,48L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+          </div>
         </div>
       </section>
 
+      {/* Feature Section (Mega Bunny 3L) */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="container mx-auto px-6 md:px-12 xl:px-24 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center">
           
-          <div className="relative w-full aspect-square flex items-center justify-center my-6 lg:my-0">
+          {/* Image Composition */}
+          <div className="relative w-full aspect-square max-h-72 sm:max-h-96 lg:max-h-none flex items-center justify-center my-2 lg:my-0 order-1 lg:order-2">
             <img 
               key={selectedMegaBunny.name}
               src={selectedMegaBunny.src} 
               alt={`Mega Bunny ${selectedMegaBunny.name}`} 
-              className="relative z-10 h-full md:h-[110%] w-auto max-w-none object-contain drop-shadow-2xl scale-[1.05] translate-x-[-10%] translate-y-[5%] animate-subtle-fade" 
+              className="relative z-10 h-[95%] sm:h-[110%] md:h-[130%] lg:h-[150%] w-auto max-w-none object-contain drop-shadow-2xl animate-subtle-fade" 
             />
-
-            <svg 
-              viewBox="0 0 100 100" 
-              className="absolute inset-0 w-full h-full z-20 pointer-events-none"
-              preserveAspectRatio="none"
-            >
-              <path 
-                d="M 82 18 Q 108 50 82 82" 
-                stroke="#1A1A1A" 
-                strokeWidth="0.5" 
-                fill="none" 
-              />
-            </svg>
-
-            {MEGA_BUNNY_VARIANTS.map((variant, index) => {
-              const pos = [
-                { left: '82%', top: '18%' },
-                { left: '95%', top: '50%' },
-                { left: '82%', top: '82%' },
-              ][index];
-              const isSelected = selectedMegaBunny.name === variant.name;
-              
-              return (
-                <div 
-                  key={variant.name}
-                  className={`absolute w-[20%] aspect-square -translate-x-1/2 -translate-y-1/2 cursor-pointer flex items-center justify-center transition-all duration-300 rounded-full border-[3px] bg-white z-30 ${isSelected ? 'border-primary shadow-xl scale-110' : 'border-[#1A1A1A] shadow-md hover:scale-105'}`}
-                  style={{ left: pos.left, top: pos.top }}
-                  onClick={() => setSelectedMegaBunny(variant)}
-                >
-                  <img src={variant.src} alt={variant.name} className="w-[110%] max-w-none h-auto object-contain drop-shadow-sm transition-transform duration-300" />
-                </div>
-              );
-            })}
           </div>
 
-          <div className="flex flex-col items-start max-w-lg">
-            <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">FEATURED PRODUCT</span>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-logo text-[#212529] mb-6 leading-[1.05] tracking-wide">
+          {/* Text Content */}
+          <div className="flex flex-col items-start max-w-lg order-2 lg:order-1">
+            <span className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-2 md:mb-4 block">FEATURED PRODUCT</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-logo text-[#212529] mb-4 leading-[1.05] tracking-wide">
               Mega Bunny 3L
             </h2>
-            <p className="text-slate-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
+            
+            {/* Color Selection */}
+            <div className="mb-6 md:mb-8 w-full">
+              <h3 className="text-[#1A1A1A] font-bold text-base md:text-lg mb-3">Color</h3>
+              
+              {/* Mobile View: 2 Colors + Explore More Link */}
+              <div className="flex flex-wrap items-center gap-2 sm:hidden">
+                {MEGA_BUNNY_VARIANTS.slice(0, 2).map((variant) => {
+                  const isSelected = selectedMegaBunny.name === variant.name;
+                  const bgClass = variant.name === 'Blue' ? 'bg-[#3B82F6]' 
+                                : variant.name === 'Brown' ? 'bg-[#8B4513]'
+                                : 'bg-[#F8F9FA]';
+                  return (
+                    <button
+                      key={variant.name}
+                      onClick={() => setSelectedMegaBunny(variant)}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all bg-white text-[#1A1A1A] font-medium text-xs ${isSelected ? 'border-primary shadow-sm scale-105' : 'border-slate-100'}`}
+                    >
+                      <span className={`w-3.5 h-3.5 rounded-full ${bgClass}`}></span>
+                      {variant.name}
+                    </button>
+                  );
+                })}
+                <Link
+                  to="/products/drawers-mega-bunny-3l"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-full border-2 border-dashed border-slate-300 text-slate-600 font-bold text-xs hover:border-primary hover:text-primary transition-colors bg-white"
+                >
+                  + explore more colors
+                </Link>
+              </div>
+
+              {/* Desktop View: All 5 Colors */}
+              <div className="hidden sm:flex flex-wrap gap-3 md:gap-4">
+                {MEGA_BUNNY_VARIANTS.map((variant) => {
+                  const isSelected = selectedMegaBunny.name === variant.name;
+                  const bgClass = variant.name === 'Blue' ? 'bg-[#3B82F6]' 
+                                : variant.name === 'Green' ? 'bg-[#84CC16]' 
+                                : variant.name === 'Pink' ? 'bg-[#ec4899]'
+                                : variant.name === 'Brown' ? 'bg-[#8B4513]'
+                                : 'bg-[#F8F9FA]';
+                  return (
+                    <button
+                      key={variant.name}
+                      onClick={() => setSelectedMegaBunny(variant)}
+                      className={`flex items-center gap-2.5 md:gap-3 px-5 md:px-6 py-2 md:py-2.5 rounded-full border-2 transition-all bg-white text-[#1A1A1A] font-medium text-sm md:text-base ${isSelected ? 'border-primary shadow-sm scale-105' : 'border-slate-100 hover:border-slate-200 hover:scale-105'}`}
+                    >
+                      <span className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${bgClass} ${variant.name === 'White' ? 'border border-gray-200' : ''}`}></span>
+                      {variant.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <p className="text-slate-600 text-base md:text-lg mb-6 md:mb-10 leading-relaxed font-medium">
               Brighten up any room with our Mega Bunny 3L series drawers. Combining a playful design with sturdy construction, these cabinets offer spacious and stylish storage solutions. Easy to clean and incredibly durable, they're the perfect addition to organize your home.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
@@ -387,7 +432,7 @@ export default function Home() {
         <div 
           onScroll={(e) => {
             const container = e.currentTarget;
-            const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+            const idx = Math.min(3, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
             setDrawersScrollIdx(idx);
           }}
           className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2"
@@ -398,7 +443,7 @@ export default function Home() {
           ].map((product) => {
             const displayImage = product.mainImage;
             return (
-            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center snap-always bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
               <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                 <img 
                   src={displayImage} 
@@ -516,7 +561,7 @@ export default function Home() {
         <div 
           onScroll={(e) => {
             const container = e.currentTarget;
-            const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+            const idx = Math.min(3, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
             setChairsScrollIdx(idx);
           }}
           className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2"
@@ -525,7 +570,7 @@ export default function Home() {
             const colors = ['green', 'white', 'beige', 'orange'];
             const displayImage = product.images.find(img => img.toLowerCase().includes(colors[idx])) || product.mainImage;
             return (
-            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+            <Link key={product.id} to={`/products/${product.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center snap-always bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
               <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                 <img 
                   src={displayImage} 

@@ -268,13 +268,13 @@ export default function ProductDetail() {
           <div 
             onScroll={(e) => {
               const container = e.currentTarget;
-              const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+              const idx = Math.min(relatedProducts.length - 1, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
               setRelatedScrollIdx(idx);
             }}
             className="flex overflow-x-auto lg:grid lg:grid-cols-4 gap-5 pb-4 snap-x snap-mandatory scrollbar-none px-2 -mx-2"
           >
             {relatedProducts.map(relatedProduct => (
-              <Link key={relatedProduct.id} to={`/products/${relatedProduct.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
+              <Link key={relatedProduct.id} to={`/products/${relatedProduct.id}`} className="group w-[82vw] sm:w-auto shrink-0 snap-center snap-always bg-white rounded-[2.5rem] p-4 flex flex-col items-center overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent hover:border-primary">
                 <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
                   <img 
                     src={relatedProduct.mainImage} 

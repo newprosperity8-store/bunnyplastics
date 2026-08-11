@@ -325,21 +325,21 @@ export default function Distributors() {
 
   const renderStepIndicators = () => {
     return (
-      <div className="flex items-center justify-center space-x-4 mb-12">
+      <div className="flex items-center justify-center mb-8 sm:mb-12 w-full max-w-xs sm:max-w-md mx-auto px-2">
         {[1, 2, 3].map((step) => (
           <div key={step} className="flex items-center">
             <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
+              className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 ${
                 currentStep >= step
                   ? 'bg-primary text-white'
                   : 'bg-slate-200 text-slate-500'
               } transition-colors duration-300`}
             >
-              {currentStep > step ? <CheckCircle2 className="w-5 h-5" /> : step}
+              {currentStep > step ? <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" /> : step}
             </div>
             {step < 3 && (
               <div
-                className={`w-16 h-1 mx-2 rounded ${
+                className={`w-6 sm:w-16 h-1 mx-1 sm:mx-2 rounded ${
                   currentStep > step ? 'bg-primary' : 'bg-slate-200'
                 } transition-colors duration-300`}
               />
@@ -384,12 +384,12 @@ export default function Distributors() {
             <div 
               onScroll={(e) => {
                 const container = e.currentTarget;
-                const idx = Math.round(container.scrollLeft / (container.clientWidth * 0.8));
+                const idx = Math.min(2, Math.max(0, Math.round(container.scrollLeft / (container.clientWidth * 0.8))));
                 setPartnerCardIdx(idx);
               }}
               className="flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-5 pb-6 px-2 -mx-2 md:grid md:grid-cols-3 md:gap-16 w-full mb-10 md:mb-20"
             >
-              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center snap-always bg-transparent p-4 md:p-0 flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
                   <img src="/images/icons/quality.webp" alt="Unmatched Quality" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
@@ -399,7 +399,7 @@ export default function Distributors() {
                 </p>
               </div>
 
-              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center snap-always bg-transparent p-4 md:p-0 flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
                   <img src="/images/icons/trusted.webp" alt="Trusted Brand" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
@@ -409,7 +409,7 @@ export default function Distributors() {
                 </p>
               </div>
 
-              <div className="w-[82vw] md:w-auto shrink-0 snap-center bg-slate-50 md:bg-transparent p-6 md:p-0 rounded-3xl md:rounded-none border border-slate-100 md:border-none shadow-sm md:shadow-none flex flex-col items-center text-center group">
+              <div className="w-[82vw] md:w-auto shrink-0 snap-center snap-always bg-transparent p-4 md:p-0 flex flex-col items-center text-center group">
                 <div className="flex items-center justify-center mb-6">
                   <img src="/images/icons/growth.webp" alt="Growth Support" className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-105" />
                 </div>
@@ -671,13 +671,13 @@ export default function Distributors() {
                     </div>
                   )}
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-3 w-full">
                     <button
                       type="button"
                       onClick={handlePrev}
-                      className="flex items-center gap-2 px-6 py-3 rounded-full text-slate-600 font-bold hover:bg-slate-100 transition-colors"
+                      className="flex items-center justify-center gap-1.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-slate-600 font-bold hover:bg-slate-100 transition-colors text-xs sm:text-base border border-slate-200 sm:border-none shrink-0"
                     >
-                      <ArrowLeft className="w-5 h-5" />
+                      <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                       Back
                     </button>
                     
@@ -685,21 +685,21 @@ export default function Distributors() {
                       <button
                         type="button"
                         onClick={handleNext}
-                        className="flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-bold tracking-wider hover:bg-red-700 transition-colors"
+                        className="flex items-center justify-center gap-1.5 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full bg-primary text-white font-bold tracking-wider hover:bg-red-700 transition-colors text-xs sm:text-base shrink-0"
                       >
                         Next Step
-                        <ArrowRight className="w-5 h-5" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                       </button>
                     ) : (
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className={`flex items-center gap-2 px-8 py-3 rounded-full text-white font-bold tracking-wider transition-colors ${
+                        className={`flex items-center justify-center gap-1.5 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full text-white font-bold tracking-wider transition-colors text-xs sm:text-base shrink-0 ${
                           isSubmitting ? 'bg-red-400 cursor-not-allowed' : 'bg-primary hover:bg-red-700'
                         }`}
                       >
                         {isSubmitting ? 'Submitting...' : 'Submit Application'}
-                        {!isSubmitting && <CheckCircle2 className="w-5 h-5" />}
+                        {!isSubmitting && <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />}
                       </button>
                     )}
                   </div>
