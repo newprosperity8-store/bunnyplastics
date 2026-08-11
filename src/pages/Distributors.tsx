@@ -458,7 +458,7 @@ export default function Distributors() {
               </div>
 
               {/* Mobile-Only Wardrobes (Centered in Mobile View) */}
-              <div className="block md:hidden w-full pt-8 flex justify-center items-center">
+              <div className="flex md:hidden w-full pt-8 justify-center items-center">
                 <div className="flex items-end justify-center -mb-4">
                   <img 
                     src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 

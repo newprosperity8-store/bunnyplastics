@@ -13,7 +13,7 @@ const MEGA_BUNNY_VARIANTS = [
   { name: 'Brown', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp' },
   { name: 'Blue', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Blue.webp' },
   { name: 'Green', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA green.webp' },
-  { name: 'Pink', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Pink.webp' },
+  { name: 'Mocha', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Pink.webp' },
   { name: 'White', src: '/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA White.webp' }
 ];
 
@@ -425,7 +425,7 @@ export default function Home() {
                   const isSelected = selectedMegaBunny.name === variant.name;
                   const bgClass = variant.name === 'Blue' ? 'bg-[#3B82F6]' 
                                 : variant.name === 'Green' ? 'bg-[#84CC16]' 
-                                : variant.name === 'Pink' ? 'bg-[#ec4899]'
+                                : variant.name === 'Mocha' ? 'bg-[#967969]'
                                 : variant.name === 'Brown' ? 'bg-[#8B4513]'
                                 : 'bg-[#F8F9FA]';
                   return (

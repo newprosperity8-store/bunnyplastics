@@ -679,7 +679,7 @@ export const PRODUCTS: Product[] = [
       "Blue",
       "Brown",
       "Green",
-      "Pink",
+      "Mocha",
       "White"
     ],
     "code": "2028-3L",

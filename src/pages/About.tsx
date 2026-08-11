@@ -74,13 +74,13 @@ export default function About() {
             </div>
             <div className="lg:w-2/3 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full">
-                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
+                <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory1.webp" alt="BunnyPlastics Manufacturing Facility 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
+                <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory2.webp" alt="BunnyPlastics Manufacturing Facility 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
+                <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
                   <img src="/images/factory/factory3.webp" alt="BunnyPlastics Manufacturing Facility 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
@@ -111,7 +111,7 @@ export default function About() {
             </div>
 
             {/* Mobile-Only Wardrobes (Centered in Mobile View) */}
-            <div className="block md:hidden w-full pt-8 flex justify-center items-center">
+            <div className="flex md:hidden w-full pt-8 justify-center items-center">
               <div className="flex items-end justify-center -mb-4">
                 <img 
                   src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 

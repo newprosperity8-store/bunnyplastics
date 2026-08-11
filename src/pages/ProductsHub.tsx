@@ -47,7 +47,7 @@ export default function ProductsHub() {
       </section>
 
       {/* Top Categories Navigation */}
-      <div className="w-full bg-background border-b border-slate-200 pt-6 pb-0 overflow-x-auto scrollbar-none sticky top-20 z-40 bg-white/95 backdrop-blur-md">
+      <div className="w-full border-b border-slate-200 pt-6 pb-0 overflow-x-auto scrollbar-none sticky top-20 z-40 bg-white/95 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-start md:justify-center gap-6 md:gap-12 overflow-x-auto scrollbar-none pb-2 px-2">
             {[
