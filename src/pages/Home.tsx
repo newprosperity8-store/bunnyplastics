@@ -40,10 +40,10 @@ const CATEGORIES = categoryMap.map(cat => {
 const BESTSELLERS = [
   {
     number: "01",
-    img: "/images/Storage Box/Storage Box/Transparent/111-M trans red.webp",
-    name: "111-M TRANS RED",
-    category: "Premium Seating",
-    productId: "storage-box-111m-red",
+    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp",
+    name: "MEGA BUNNY 3L",
+    category: "Drawers & Cabinets",
+    productId: "drawers-mega-bunny-3l",
     offset: false
   },
   {
@@ -64,10 +64,10 @@ const BESTSELLERS = [
   },
   {
     number: "04",
-    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp",
-    name: "MEGA BUNNY 3L",
-    category: "Drawers & Cabinets",
-    productId: "drawers-mega-bunny-3l",
+    img: "/images/Storage Box/Storage Box/Transparent/111-M trans red.webp",
+    name: "111-M TRANS RED",
+    category: "Storage Boxes",
+    productId: "storage-box-111m-red",
     offset: true
   },
   {
@@ -77,6 +77,14 @@ const BESTSELLERS = [
     category: "Tables",
     productId: "tables-8824-rectangular-table",
     offset: false
+  },
+  {
+    number: "06",
+    img: "/images/Dish Cabinet/Dish Cabinet/8000/8000 blue3.webp",
+    name: "DISH CABINET 8000",
+    category: "Dish Cabinets",
+    productId: "dish-cabinets-8000",
+    offset: true
   }
 ];
 
@@ -397,7 +405,7 @@ export default function Home() {
                 <span className="text-2xl font-logo text-white mb-3 ml-4">{item.number}</span>
                 
                 {/* The Card */}
-                <div className="w-full bg-white rounded-[2.5rem] p-5 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-slate-200 group-hover:scale-105">
+                <div className="w-full bg-white rounded-[2.5rem] p-5 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-[#1A1A1A] group-hover:scale-105">
                   
                   {/* Image Container */}
                   <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
