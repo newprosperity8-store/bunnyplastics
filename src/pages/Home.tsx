@@ -40,38 +40,43 @@ const CATEGORIES = categoryMap.map(cat => {
 const BESTSELLERS = [
   {
     number: "01",
-    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp",
-    name: "Mega Bunny 3L",
-    category: "Drawers & Cabinets",
-    productId: "drawers-mega-bunny-3l"
+    img: "/images/Storage Box/Storage Box/Transparent/111-M trans red.webp",
+    name: "111-M TRANS RED",
+    category: "Premium Seating",
+    productId: "storage-box-111m-red",
+    offset: false
   },
   {
     number: "02",
-    img: "/images/Chairs/Chairs/101/101A beige.webp",
-    name: "Dimple Chair",
-    category: "Chairs",
-    productId: "chairs-101-dimple-chair"
+    img: "/images/Chairs/Chairs/Rattan Chair 890/890 brown.webp",
+    name: "890 BROWN",
+    category: "Classic Comfort",
+    productId: "chairs-rattan-890",
+    offset: true
   },
   {
     number: "03",
-    img: "/images/Tables/Tables/8824/8824 white.webp",
-    name: "Rectangular Table",
-    category: "Tables",
-    productId: "tables-8824-rectangular-table"
+    img: "/images/Drawers & Cabinets/Drawers and Cabinets/18000 6L/18000 6L Aqua.webp",
+    name: "18000 6L AQUA",
+    category: "Storage & Cabinets",
+    productId: "drawers-18000-6l",
+    offset: false
   },
   {
     number: "04",
-    img: "/images/Dish Cabinet/Dish Cabinet/8000/8000 blue3.webp",
-    name: "Dish Cabinet",
-    category: "Dish Cabinets",
-    productId: "dish-cabinets-8000"
+    img: "/images/Drawers & Cabinets/Drawers and Cabinets/Mega Bunny 3L/MEGA Brown.webp",
+    name: "MEGA BUNNY 3L",
+    category: "Drawers & Cabinets",
+    productId: "drawers-mega-bunny-3l",
+    offset: true
   },
   {
     number: "05",
-    img: "/images/Storage Box/Storage Box/Colored/111-L green.webp",
-    name: "Storage Box",
-    category: "Storage Boxes",
-    productId: "storage-box-111-l"
+    img: "/images/Tables/Tables/8824/8824 white.webp",
+    name: "8824 RECTANGULAR",
+    category: "Tables",
+    productId: "tables-8824-rectangular-table",
+    offset: false
   }
 ];
 
@@ -377,22 +382,22 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Desktop & Tablet Continuous Auto-Scrolling Marquee */}
+          {/* Desktop & Tablet Continuous Auto-Scrolling Marquee with Staggered Layout */}
           <div 
             ref={bestsellersRef}
-            className="hidden md:flex overflow-x-auto scrollbar-none gap-8 pb-8 pt-4 w-full items-stretch"
+            className="hidden md:flex overflow-x-auto scrollbar-none gap-8 pb-16 pt-4 w-full items-start"
           >
             {[...BESTSELLERS, ...BESTSELLERS].map((item, idx) => (
               <Link 
                 to={`/products/${item.productId}`}
                 key={idx} 
-                className="w-[320px] shrink-0 flex flex-col cursor-pointer group"
+                className={`w-[320px] shrink-0 flex flex-col cursor-pointer group ${item.offset ? 'mt-16 md:mt-24' : ''}`}
               >
                 {/* External Number */}
                 <span className="text-2xl font-logo text-white mb-3 ml-4">{item.number}</span>
                 
                 {/* The Card */}
-                <div className="w-full bg-white rounded-[2.5rem] p-4 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-slate-200">
+                <div className="w-full bg-white rounded-[2.5rem] p-5 flex flex-col items-center group overflow-hidden relative shadow-sm aspect-4/5 transition-all duration-300 border-2 border-transparent group-hover:border-slate-200 group-hover:scale-105">
                   
                   {/* Image Container */}
                   <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
@@ -404,9 +409,8 @@ export default function Home() {
                     <h3 className="text-xl md:text-2xl font-logo tracking-widest text-[#1A1A1A] mb-1 uppercase line-clamp-1">{item.name}</h3>
                     <p className="text-xs md:text-sm text-slate-400 capitalize">{item.category}</p>
                     <div className="w-full mt-4">
-                      <div className="w-full bg-transparent border-2 border-[#1A1A1A] text-[#1A1A1A] py-2.5 rounded-full font-bold uppercase tracking-widest text-xs group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors flex items-center justify-center gap-2">
-                        View Details
-                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <div className="w-full bg-[#1A1A1A] text-white py-3 rounded-full font-bold uppercase tracking-widest text-xs group-hover:bg-primary transition-colors flex items-center justify-center gap-2">
+                        ADD TO CART
                       </div>
                     </div>
                   </div>
