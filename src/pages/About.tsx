@@ -75,13 +75,13 @@ export default function About() {
             <div className="lg:w-2/3 w-full">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full">
                 <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
-                  <img src="/images/factory/factory1.webp" alt="BunnyPlastics Manufacturing Facility 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" src="/images/factory/factory1.webp" alt="BunnyPlastics Manufacturing Facility 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
-                  <img src="/images/factory/factory2.webp" alt="BunnyPlastics Manufacturing Facility 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" src="/images/factory/factory2.webp" alt="BunnyPlastics Manufacturing Facility 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-4xl overflow-hidden shadow-lg aspect-4/3 border border-slate-100 hover:shadow-2xl transition-all duration-300">
-                  <img src="/images/factory/factory3.webp" alt="BunnyPlastics Manufacturing Facility 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  <img loading="lazy" src="/images/factory/factory3.webp" alt="BunnyPlastics Manufacturing Facility 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
@@ -97,6 +97,7 @@ export default function About() {
               <div className="absolute bottom-0 right-0 w-full h-full flex justify-end items-end">
                  <div className="flex items-end -mr-10 md:-mr-16 translate-y-24 md:translate-y-40">
                     <img 
+                      loading="lazy"
                       src="/images/Drawers%20&%20Cabinets/Drawers%20and%20Cabinets/Mega%20Bunny%203L/MEGA%20Brown.webp" 
                       alt="Mega Bunny Brown" 
                       className="w-56 sm:w-72 md:w-80 lg:w-104 drop-shadow-2xl z-10 -mr-32 sm:-mr-40 md:-mr-56 lg:-mr-72" 

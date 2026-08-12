@@ -123,7 +123,7 @@ export default function ProductDetail() {
                     onClick={() => setActiveImage(img)}
                     className={`aspect-square bg-white rounded-2xl shadow-sm border p-2 flex items-center justify-center transition-all ${activeImage === img ? 'border-[#1A1A1A] ring-2 ring-[#1A1A1A]/20' : 'border-slate-100 hover:border-slate-300'}`}
                   >
-                    <img src={img} alt={`${product.name} thumbnail ${thumbnailStartIndex + idx + 1}`} className="w-full h-full object-contain mix-blend-multiply" />
+                    <img loading="lazy" src={img} alt={`${product.name} thumbnail ${thumbnailStartIndex + idx + 1}`} className="w-full h-full object-contain mix-blend-multiply" />
                   </button>
                 ))}
               </div>

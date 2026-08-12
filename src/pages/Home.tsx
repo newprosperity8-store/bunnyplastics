@@ -270,7 +270,7 @@ export default function Home() {
                   className="w-[43vw] sm:w-[45vw] md:w-auto shrink-0 snap-start snap-always bg-transparent p-2 sm:p-4 md:p-0 border-none shadow-none flex flex-col items-center group cursor-pointer"
                 >
                   <div className="w-full h-32 sm:h-36 md:h-48 flex items-center justify-center p-1 sm:p-2 md:p-3 mb-2 md:mb-4 transition-transform duration-500 group-hover:-translate-y-2">
-                    <img src={cat.src} alt={cat.name} className="max-w-full max-h-full w-auto h-auto object-contain mix-blend-multiply drop-shadow-sm" />
+                    <img loading="lazy" src={cat.src} alt={cat.name} className="max-w-full max-h-full w-auto h-auto object-contain mix-blend-multiply drop-shadow-sm" />
                   </div>
                   <h4 className="text-base sm:text-lg md:text-2xl font-logo tracking-wider text-center text-[#1A1A1A] group-hover:text-primary transition-colors">{cat.name}</h4>
                 </Link>
@@ -315,7 +315,7 @@ export default function Home() {
                 className={`${item.widthClass} bg-white p-1.5 sm:p-2 md:p-3 pb-6 sm:pb-8 md:pb-12 border border-[#E5E5E5] shrink-0 ${item.rotate} ${item.translateY} ${item.zIndex}`}
               >
                 <div className="w-full aspect-square bg-[#F5F2F0] flex items-center justify-center overflow-hidden">
-                  <img src={item.src} alt={`Gallery ${index}`} className="w-[90%] h-auto object-contain drop-shadow-sm" />
+                  <img loading="lazy" src={item.src} alt={`Gallery ${index}`} className="w-[90%] h-auto object-contain drop-shadow-sm" />
                 </div>
               </div>
             ))}
@@ -373,7 +373,7 @@ export default function Home() {
                   
                   {/* Image Container */}
                   <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
-                    <img src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
+                    <img loading="lazy" src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   
                   {/* Text Container */}
@@ -428,7 +428,7 @@ export default function Home() {
                   
                   {/* Image Container */}
                   <div className="w-full bg-[#F5F5F5] rounded-3xl grow flex items-center justify-center mb-4 overflow-hidden relative transition-all duration-300">
-                    <img src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
+                    <img loading="lazy" src={item.img} alt={item.name} className="object-contain w-3/4 h-3/4 transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   
                   {/* Text Container */}
@@ -647,7 +647,7 @@ export default function Home() {
                   style={{ left: pos.left, top: pos.top }}
                   onClick={() => setSelectedVariant(variant)}
                 >
-                  <img src={variant.src} alt={variant.name} className="w-[110%] max-w-none h-auto object-contain drop-shadow-sm transition-transform duration-300" />
+                  <img loading="lazy" src={variant.src} alt={variant.name} className="w-[110%] max-w-none h-auto object-contain drop-shadow-sm transition-transform duration-300" />
                 </div>
               );
             })}

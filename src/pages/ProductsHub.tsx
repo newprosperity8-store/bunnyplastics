@@ -195,6 +195,7 @@ export default function ProductsHub() {
               <Link key={product.id} to={`/products/${product.id}`} className="group flex flex-col items-center cursor-pointer">
                 <div className="w-full h-52 md:h-60 mb-6 flex items-center justify-center p-3 bg-[#F8F9FA]/80 rounded-2xl border border-slate-100/50">
                   <img 
+                    loading="lazy"
                     src={displayImage} 
                     alt={product.name || product.code} 
                     className="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-sm" 
